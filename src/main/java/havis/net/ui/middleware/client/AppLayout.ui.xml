@@ -1,0 +1,30 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:m="urn:import:havis.net.ui.middleware.client.main"
+	xmlns:s="urn:import:havis.net.ui.shared.client">
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ResourceBundle" field="res"/>
+	<ui:with type="havis.net.ui.shared.resourcebundle.ResourceBundle" field="sharedRes" />
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ConstantsResource" field="i18n" />
+	<ui:style>
+	</ui:style>
+	<g:FlowPanel styleName="{res.css.app}">
+		<s:BackButton text="Middleware" />
+		<g:SimplePanel ui:field="details" styleName="{res.css.details}"/>
+		<m:MainSections ui:field="sections" styleName="{sharedRes.css.single}">
+			<m:MainSection ui:field="cm" name="{i18n.common}" sectionType="CM" addStyleNames="{sharedRes.css.section}" />
+			<m:MainSection ui:field="lr" name="{i18n.logicalReader}" sectionType="LR" addStyleNames="{sharedRes.css.section}" />
+			<m:MainSection ui:field="tm" name="{i18n.tagMemory}" sectionType="TM" addStyleNames="{sharedRes.css.section}" />
+			<m:MainSection ui:field="ec" name="{i18n.ecTitleEventCycle}" sectionType="EC" addStyleNames="{sharedRes.css.section}" />
+			<m:MainSection ui:field="pc" name="{i18n.pcTitlePortCycle}" sectionType="PC" addStyleNames="{sharedRes.css.section}" />
+			<m:MainSection ui:field="cc" name="{i18n.commandCycle}" sectionType="CC" addStyleNames="{sharedRes.css.section}"/>
+			<m:MainSection ui:field="ds" name="{i18n.dataSource}" sectionType="DS" addStyleNames="{sharedRes.css.section}">
+				<m:MainSections ui:field="dsSections" addStyleNames="{sharedRes.css.subsection} {sharedRes.css.single}">
+					<m:MainSection ui:field="dsrn" name="{i18n.random}" sectionType="DSRN" addStyleNames="{sharedRes.css.section}" />
+					<m:MainSection ui:field="dsas" name="{i18n.association}" sectionType="DSAS" addStyleNames="{sharedRes.css.section}" />
+					<m:MainSection ui:field="dsca" name="{i18n.cache}" sectionType="DSCA" addStyleNames="{sharedRes.css.section}" />
+				</m:MainSections>
+			</m:MainSection>
+		</m:MainSections>
+	</g:FlowPanel>
+</ui:UiBinder> 

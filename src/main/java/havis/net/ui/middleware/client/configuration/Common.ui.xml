@@ -1,0 +1,42 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:h="urn:import:havis.net.ui.middleware.client.configuration"
+	xmlns:s="urn:import:havis.net.ui.shared.client"
+	xmlns:l="urn:import:havis.net.ui.middleware.client.shared">
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ResourceBundle" field="res" />
+	<ui:with type="havis.net.ui.shared.resourcebundle.ResourceBundle" field="sharedRes" />
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ConstantsResource" field="i18n" />
+	<ui:style>
+	.soapService {
+		display: flex;
+		align-items: center;
+		flex: initial;
+		width: 30em;
+		margin-left: auto;
+	}
+	.change {
+		margin-left: auto;
+		font-size: 1rem;
+		color: red;
+	}
+	</ui:style>
+	<g:HTMLPanel addStyleNames="{sharedRes.css.subsection}">
+		<g:FlowPanel addStyleNames="{res.css.commonRow}">
+			<g:Label ui:text="{i18n.aleId}" addStyleNames="{res.css.commonLabel}" />
+			<g:TextBox ui:field="aleId" addStyleNames="{res.css.aleid} {res.css.webuiTextBox}" />
+		</g:FlowPanel>
+		<g:FlowPanel addStyleNames="{res.css.commonRow}">
+			<g:Label ui:text="SOAP Service" />
+			<g:FlowPanel addStyleNames="{style.soapService}">
+				<g:ToggleButton ui:field="soapService" styleName="webui-Switcher" />
+				<g:Label ui:text="(change requires restart)" addStyleNames="{style.change}"></g:Label>
+			</g:FlowPanel>
+		</g:FlowPanel>
+		<s:ConfigurationSections addStyleNames="{sharedRes.css.commonSections}">
+			<h:ReaderCycleSection name="{i18n.readerCycle}" ui:field="readerSection" addStyleNames="{sharedRes.css.section}" />
+			<h:ThreadsSection name="{i18n.threads}" ui:field="threadsSection" addStyleNames="{sharedRes.css.section}" />
+			<h:SubscriberSection name="{i18n.subscriberSection}" ui:field="subscriberSection" addStyleNames="{sharedRes.css.section}" />
+			<h:ProductInfoSection name="{i18n.productInformation}" ui:field="productInfoSection" addStyleNames="{sharedRes.css.section}" />
+		</s:ConfigurationSections>
+		<l:CustomMessageWidget ui:field="message"/>
+	</g:HTMLPanel>
+</ui:UiBinder> 

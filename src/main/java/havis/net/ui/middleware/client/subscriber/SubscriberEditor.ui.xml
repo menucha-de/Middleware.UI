@@ -1,0 +1,17 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:s="urn:import:havis.net.ui.middleware.client.shared"
+	xmlns:c="urn:import:havis.net.ui.shared.client"
+	xmlns:a="urn:import:havis.net.ui.middleware.client.subscriber" xmlns:t="urn:import:havis.transport.ui.client">
+	
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ConstantsResource" field="i18n" />
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ResourceBundle" field="res"/>
+	<ui:style>
+	</ui:style>
+	
+	<g:FlowPanel>
+		<g:ToggleButton styleName="webui-EnableButton" ui:field="enable" />
+		<t:TransportPanel ui:field="editor" />
+	</g:FlowPanel>
+</ui:UiBinder> 

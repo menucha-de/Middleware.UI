@@ -1,0 +1,26 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:us="urn:import:havis.net.ui.shared.client"
+	xmlns:srl="urn:import:havis.net.ui.middleware.client.shared.report.list"
+	>
+	
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ResourceBundle" field="res" />
+	<ui:with type="havis.net.ui.shared.resourcebundle.ResourceBundle" field="sharedRes" />
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ConstantsResource" field="i18n" />
+	
+	<ui:style>
+	</ui:style>
+	
+	<g:FlowPanel>
+		<g:ToggleButton styleName="webui-EnableButton" ui:field="enable" />
+		<g:FlowPanel addStyleNames="{res.css.cycleAssocRow}">
+			<g:Label text="{i18n.name}" addStyleNames="{res.css.webuiProperty}" />
+			<g:TextBox ui:field="name" addStyleNames="{res.css.nameinput} {res.css.webuiTextBox}" />
+		</g:FlowPanel>
+		<us:ConfigurationSections ui:field="patternConfigSection" addStyleNames="{sharedRes.css.editorSections}">
+			<srl:SingleColumnListWidget ui:field="patternListEditor" text="Pattern" />
+		</us:ConfigurationSections>
+		
+	</g:FlowPanel>
+</ui:UiBinder> 

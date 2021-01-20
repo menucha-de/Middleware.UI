@@ -1,0 +1,27 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ResourceBundle" field="res" />
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ConstantsResource" field="i18n" />
+	
+	<ui:style>
+	</ui:style>
+	<g:FlowPanel>			
+		<g:FlowPanel addStyleNames="{res.css.ecReportsConditionsRow}">
+			<g:Label ui:text="{i18n.initiationCondition}" addStyleNames="{res.css.webuiProperty}"/>
+			<g:Label ui:field="initiationCondition" addStyleNames="{res.css.webuiTextBox}"  />
+		</g:FlowPanel>
+		<g:FlowPanel addStyleNames="{res.css.ecReportsConditionsRow}">
+			<g:Label ui:text="{i18n.initiationTrigger}" addStyleNames="{res.css.webuiProperty}"/>
+			<g:Label ui:field="initiationTrigger" addStyleNames="{res.css.webuiTextBox}"  />
+		</g:FlowPanel>
+		<g:FlowPanel addStyleNames="{res.css.ecReportsConditionsRow}">
+			<g:Label ui:text="{i18n.terminationCondition}" addStyleNames="{res.css.webuiProperty}"/>
+			<g:Label ui:field="terminationCondition" addStyleNames="{res.css.webuiTextBox}"  />
+		</g:FlowPanel>
+		<g:FlowPanel addStyleNames="{res.css.ecReportsConditionsRow}">
+			<g:Label ui:text="{i18n.terminationTrigger}" addStyleNames="{res.css.webuiProperty}"/>
+			<g:Label ui:field="terminationTrigger" addStyleNames="{res.css.webuiTextBox}"  />
+		</g:FlowPanel>
+	</g:FlowPanel>
+</ui:UiBinder> 

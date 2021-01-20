@@ -1,0 +1,42 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:ou="urn:import:havis.net.ui.middleware.client.ec.rep.output"
+	xmlns:srl="urn:import:havis.net.ui.middleware.client.shared.report.list"
+	xmlns:gp="urn:import:havis.net.ui.middleware.client.ec.rep.group"
+	xmlns:us="urn:import:havis.net.ui.shared.client"
+	xmlns:s="urn:import:havis.net.ui.shared.client.widgets"
+	xmlns:srp="urn:import:havis.net.ui.middleware.client.shared.report"
+	>
+
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ResourceBundle" field="res" />
+	<ui:with type="havis.net.ui.shared.resourcebundle.ResourceBundle" field="sharedRes" />
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ConstantsResource" field="i18n" />
+
+	<ui:style>
+	</ui:style>
+	<g:HTMLPanel>
+		<g:FlowPanel addStyleNames="{res.css.specItemsRow}">
+			<g:Label text="{i18n.name}"  addStyleNames="{res.css.webuiProperty} {res.css.text}" />
+			<g:TextBox ui:field="name" addStyleNames="{res.css.webuiTextBox}" />
+		</g:FlowPanel>
+		<g:FlowPanel addStyleNames="{res.css.specItemsRow}">
+			<g:Label text="Set" addStyleNames="{res.css.webuiProperty} {res.css.text}"/>
+			<s:CustomListBox ui:field="reportSet" addStyleNames="{res.css.webuiListBox}" />
+		</g:FlowPanel>
+		<g:FlowPanel addStyleNames="{res.css.specItemsRow}">
+			<g:Label text="{i18n.repReportIfEmpty}" addStyleNames="{res.css.webuiProperty} {res.css.toggle}"/>
+			<g:ToggleButton ui:field="reportIfEmpty" styleName="webui-Switcher" />
+		</g:FlowPanel>
+		<g:FlowPanel addStyleNames="{res.css.specItemsRow}">
+			<g:Label text="{i18n.repReportOnChangeOnly}" addStyleNames="{res.css.webuiProperty} {res.css.toggle}" />
+			<g:ToggleButton ui:field="reportOnChangeOnly" styleName="webui-Switcher" />				
+		</g:FlowPanel>
+
+		<us:ConfigurationSections ui:field="reportConfigSections" addStyleNames="{sharedRes.css.editorSections}">
+			<ou:OutputSpecEditor ui:field="configSecOutput"/>
+			<srl:MultipleColumnListWidget ui:field="configSecFilter"/>
+ 			<gp:ECGroupSpecEditor ui:field="configSecGroup"/>
+		</us:ConfigurationSections>
+	</g:HTMLPanel>
+</ui:UiBinder> 

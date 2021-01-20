@@ -1,0 +1,31 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" 
+	xmlns:s="urn:import:havis.net.ui.shared.client">
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ResourceBundle" field="res" />
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ConstantsResource" field="i18n" />
+	<ui:style>
+	</ui:style>
+	<g:FlowPanel>
+		<g:FlowPanel addStyleNames="{res.css.productInfoRow}">
+			<g:Label ui:text="{i18n.name}"/>
+			<g:Label ui:field="name" addStyleNames="{res.css.maxWidth} {res.css.webuiTextBox}" />
+		</g:FlowPanel>
+		<g:FlowPanel addStyleNames="{res.css.productInfoRow}">
+			<g:Label ui:text="{i18n.author}"/>
+			<g:Label ui:field="author" addStyleNames="{res.css.maxWidth} {res.css.webuiTextBox}" />
+		</g:FlowPanel>
+		<g:FlowPanel addStyleNames="{res.css.productInfoRow}">
+			<g:Label ui:text="{i18n.standardVersion}"/>
+			<g:Label ui:field="version" addStyleNames="{res.css.maxWidth} {res.css.webuiTextBox}" />
+		</g:FlowPanel>
+		<g:FlowPanel addStyleNames="{res.css.productInfoRow}">
+			<g:Label ui:text="{i18n.documentation}"/>
+			<g:Button ui:field="download" ui:text="{i18n.download}" addStyleNames="{res.css.openButton}"/>
+		</g:FlowPanel>
+		<g:FlowPanel addStyleNames="{res.css.productInfoRow}">
+			<g:Label ui:text="{i18n.homepage}"/>
+			<g:Anchor ui:field="homepage" addStyleNames="{res.css.url}"/>
+		</g:FlowPanel>
+	</g:FlowPanel>
+</ui:UiBinder> 

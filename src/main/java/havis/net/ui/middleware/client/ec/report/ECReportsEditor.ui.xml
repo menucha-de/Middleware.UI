@@ -1,0 +1,36 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:s="urn:import:havis.net.ui.shared.client"
+	xmlns:l="urn:import:havis.net.ui.middleware.client.ec.report">
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ResourceBundle" field="res" />
+	<ui:with type="havis.net.ui.shared.resourcebundle.ResourceBundle" field="sharedRes" />
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ConstantsResource" field="i18n" />
+	
+	<ui:style>
+	</ui:style>
+	<g:FlowPanel>
+		<g:FlowPanel>
+			<g:FlowPanel addStyleNames="{res.css.reportsRow}">
+				<g:Label ui:text="{i18n.name}" addStyleNames="{res.css.webuiProperty}"/>
+				<g:Label ui:field="specName" addStyleNames="{res.css.webuiTextBox}"  />
+			</g:FlowPanel>
+			<g:FlowPanel addStyleNames="{res.css.reportsRow}">
+				<g:Label ui:text="{i18n.date}" addStyleNames="{res.css.webuiProperty}"/>
+				<g:DateLabel ui:field="date" addStyleNames="{res.css.webuiTextBox}"  />
+			</g:FlowPanel>
+			<g:FlowPanel addStyleNames="{res.css.reportsRow}" visible="false">
+				<g:Label ui:text="{i18n.aleId}" addStyleNames="{res.css.webuiProperty}"/>
+				<g:Label ui:field="ALEID" addStyleNames="{res.css.webuiTextBox}"  />
+			</g:FlowPanel>
+			<g:FlowPanel addStyleNames="{res.css.reportsRow}">
+				<g:Label ui:text="{i18n.totalMilliseconds}" addStyleNames="{res.css.webuiProperty}"/>
+				<g:NumberLabel ui:field="totalMilliseconds" addStyleNames="{res.css.webuiTextBox}"  />
+			</g:FlowPanel>
+		</g:FlowPanel>
+		<s:ConfigurationSections addStyleNames="{sharedRes.css.editorSections}">
+			<l:ECReportsConditions ui:field="conditions" text="{i18n.conditions}"/>
+			<l:ECReportListEditor ui:field="reports" text="{i18n.reports}"/>
+		</s:ConfigurationSections>
+	</g:FlowPanel>
+</ui:UiBinder> 

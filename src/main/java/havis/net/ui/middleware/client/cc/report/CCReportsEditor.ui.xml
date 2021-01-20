@@ -1,0 +1,46 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:s="urn:import:havis.net.ui.shared.client"
+	xmlns:ccr="urn:import:havis.net.ui.middleware.client.cc.report"
+	>
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ResourceBundle" field="res" />
+	<ui:with type="havis.net.ui.shared.resourcebundle.ResourceBundle" field="sharedRes" />
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ConstantsResource" field="i18n" />
+	
+	<ui:style>
+	.execute {
+		margin: 1em 0;
+	}
+	</ui:style>
+	<g:FlowPanel>
+		<g:FlowPanel ui:field="parametersPanel" visible="false">
+			<s:ConfigurationSections addStyleNames="{sharedRes.css.editorSections}">
+				<ccr:CCParametersEditor ui:field="parameters" />
+			</s:ConfigurationSections>
+			<g:Button ui:field="executeButton" text="Execute" stylePrimaryName="{res.css.webuiApplyButton}" addStyleNames="{style.execute}"></g:Button>
+		</g:FlowPanel>
+		<g:FlowPanel>
+			<g:FlowPanel addStyleNames="{res.css.reportsRow}">
+				<g:Label ui:text="{i18n.name}" addStyleNames="{res.css.webuiProperty}"/>
+				<g:TextBox ui:field="specName" addStyleNames="{res.css.webuiTextBox}"  />
+			</g:FlowPanel>
+			<g:FlowPanel addStyleNames="{res.css.reportsRow}">
+				<g:Label ui:text="{i18n.date}" addStyleNames="{res.css.webuiProperty}"/>
+				<g:DateLabel ui:field="date" addStyleNames="{res.css.webuiTextBox}"  />
+			</g:FlowPanel>
+			<g:FlowPanel addStyleNames="{res.css.reportsRow}" visible="false">
+				<g:Label ui:text="{i18n.aleId}" addStyleNames="{res.css.webuiProperty}"/>
+				<g:Label ui:field="ALEID" addStyleNames="{res.css.webuiTextBox}"  />
+			</g:FlowPanel>
+			<g:FlowPanel addStyleNames="{res.css.reportsRow}">
+				<g:Label ui:text="{i18n.totalMilliseconds}" addStyleNames="{res.css.webuiProperty}"/>
+				<g:NumberLabel ui:field="totalMilliseconds" addStyleNames="{res.css.webuiTextBox}"  />
+			</g:FlowPanel>
+		</g:FlowPanel>
+		<s:ConfigurationSections ui:field="ccReportsEditorConfigSections" addStyleNames="{sharedRes.css.editorSections}" multiOpen="true">
+			<ccr:CCReportsConditions ui:field="conditions" text="{i18n.conditions}"/>
+			<ccr:CCCmdReportListEditor ui:field="cmdReports" text="{i18n.reports}"/>
+		</s:ConfigurationSections>
+	</g:FlowPanel>
+</ui:UiBinder> 

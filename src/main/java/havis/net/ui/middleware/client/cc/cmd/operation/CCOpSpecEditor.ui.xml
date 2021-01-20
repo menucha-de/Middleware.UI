@@ -1,0 +1,70 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:l="urn:import:havis.net.ui.middleware.client.shared.trigger"
+	xmlns:s="urn:import:havis.net.ui.shared.client.widgets"
+	xmlns:shr="urn:import:havis.net.ui.shared.client.widgets"
+	xmlns:srf="urn:import:havis.net.ui.middleware.client.shared.field"
+	>
+	<ui:with
+		type="havis.net.ui.middleware.client.shared.resourcebundle.ResourceBundle"
+		field="res" />
+	<ui:with
+		type="havis.net.ui.middleware.client.shared.resourcebundle.ConstantsResource"
+		field="i18n" />
+	<ui:style>
+		.space{
+			margin-left:0.5em;
+		}
+		.litData select {
+			margin-left: auto;
+			width: 21em;
+			flex: initial;
+		}
+	</ui:style>
+	<g:FlowPanel>
+		<g:FlowPanel addStyleNames="{res.css.specOpRow}">
+			<g:Label ui:text="{i18n.name}" addStyleNames="{res.css.webuiProperty}" />
+			<g:TextBox ui:field="opName" addStyleNames="{res.css.webuiTextBox}"/>
+		</g:FlowPanel>
+		
+		<g:FlowPanel addStyleNames="{res.css.specOpRow}">
+			<g:Label ui:text="{i18n.type}" addStyleNames="{res.css.webuiProperty}"/>
+			<s:CustomListBox ui:field="opTypeList" addStyleNames="{res.css.webuiListBox}"/>
+		</g:FlowPanel>
+		<g:FlowPanel ui:field="dataSpecRow">
+			<g:FlowPanel addStyleNames="{res.css.specOpRow}">
+				<g:Label ui:text="{i18n.source}" addStyleNames="{res.css.webuiProperty}"/>
+				<s:CustomListBox ui:field="specType" addStyleNames="{res.css.webuiListBox}"/>				
+			</g:FlowPanel>
+			<g:FlowPanel addStyleNames="{style.litData}" ui:field="litData">
+				<g:FlowPanel addStyleNames="{res.css.specOpRow}">
+					<g:Label ui:text="Tag Manufacturer" addStyleNames="{res.css.webuiProperty}" />
+					<s:CustomListBox ui:field="litTagManufacturer" addStyleNames="{res.css.webuiListBox}"/>
+				</g:FlowPanel>
+				<g:FlowPanel addStyleNames="{res.css.specOpRow}">
+					<g:Label ui:text="Tag Model" addStyleNames="{res.css.webuiProperty}" />
+					<s:CustomListBox ui:field="litTagModel" addStyleNames="{res.css.webuiListBox}"/>
+				</g:FlowPanel>
+				<g:FlowPanel addStyleNames="{res.css.specOpRow}">
+					<g:Label ui:text="Tag Command" addStyleNames="{res.css.webuiProperty}" />
+					<s:CustomListBox ui:field="litTagCommand" addStyleNames="{res.css.webuiListBox}"/>
+				</g:FlowPanel>
+			</g:FlowPanel>
+			<g:FlowPanel addStyleNames="{res.css.specOpRow}">
+				<g:Label ui:text="{i18n.data}" addStyleNames="{res.css.webuiProperty}" />
+				<g:TextBox ui:field="opDataText" addStyleNames="{res.css.webuiTextBox}"/>
+				<s:CustomListBox ui:field="opDataListLock" addStyleNames="{res.css.webuiListBox}"/>
+				<s:CustomListBox ui:field="opDataList" addStyleNames="{res.css.webuiListBox}"/>
+				<shr:CustomSuggestBox ui:field="opDataSuggestList" addListBoxStyleNames="{res.css.webuiListBox}"/>				
+			</g:FlowPanel>
+		</g:FlowPanel>
+		<g:FlowPanel ui:field="initForceRow" addStyleNames="{res.css.specOpRow}">
+			<g:Label text="{i18n.force}" styleName="webui-Label {res.css.webuiProperty}"/>
+			<g:ToggleButton ui:field="initForce" styleName="webui-Switcher {style.space}"/>
+		</g:FlowPanel>
+		<g:FlowPanel ui:field="fieldSpecRow" visible="false" > 
+			<srf:ECFieldSpecEditor ui:field="fieldSpecEditor"/>
+		</g:FlowPanel>
+	</g:FlowPanel>
+</ui:UiBinder> 

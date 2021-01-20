@@ -1,0 +1,13 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:us="urn:import:havis.net.ui.shared.client"
+	xmlns:srf="urn:import:havis.net.ui.middleware.client.shared.field"
+	>
+	<ui:style>
+		
+	</ui:style>
+	<g:HTMLPanel>
+		<srf:ECFieldSpecEditor ui:field="ecFieldSpecEditor" />
+	</g:HTMLPanel>
+</ui:UiBinder>

@@ -1,0 +1,39 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	>
+
+	<ui:with
+		type="havis.net.ui.middleware.client.shared.resourcebundle.ResourceBundle"
+		field="res" />
+	<ui:with
+		type="havis.net.ui.middleware.client.shared.resourcebundle.ConstantsResource"
+		field="i18n" />
+
+	<ui:style>
+	</ui:style>
+	<g:HTMLPanel ui:field="mainPanel" >
+	
+		<div class="{res.css.specItemOutputRow}">
+			<g:Label text="{i18n.capsEpc}" styleName="webui-Label {res.css.includeLabel}" />
+			<g:ToggleButton ui:field="includeEPC" styleName="webui-Switcher {res.css.toggleDistance}"/>
+		</div>
+		<div class="{res.css.specItemOutputRow}">
+			<g:Label text="{i18n.capsTag}" styleName="webui-Label {res.css.includeLabel}"/>
+			<g:ToggleButton ui:field="includeTag" styleName="webui-Switcher {res.css.toggleDistance}"/>
+		</div>
+		<div class="{res.css.specItemOutputRow}">
+			<g:Label text="{i18n.capsRawHex}" styleName="webui-Label {res.css.includeLabel}"/>
+			<g:ToggleButton ui:field="includeRawHex" styleName="webui-Switcher {res.css.toggleDistance}"/>
+		</div>
+		<div class="{res.css.specItemOutputRow}">
+			<g:Label text="{i18n.capsRawDec}" styleName="webui-Label {res.css.includeLabel}"/>
+			<g:ToggleButton ui:field="includeRawDecimal" styleName="webui-Switcher {res.css.toggleDistance}"/>
+		</div>
+		<div class="{res.css.specItemOutputRow}">
+			<g:Label text="{i18n.capsCount}" styleName="webui-Label {res.css.includeLabel}"/>
+			<g:ToggleButton ui:field="includeCount" styleName="webui-Switcher"/>
+		</div>
+		
+	</g:HTMLPanel>
+</ui:UiBinder> 

@@ -1,0 +1,56 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:l="urn:import:havis.net.ui.middleware.client.shared.trigger"
+	xmlns:shr="urn:import:havis.net.ui.shared.client.widgets"
+	xmlns:srp="urn:import:havis.net.ui.middleware.client.shared.report"
+	>
+	
+	<ui:with
+		type="havis.net.ui.middleware.client.shared.resourcebundle.ResourceBundle"
+		field="res" />
+	<ui:with
+		type="havis.net.ui.middleware.client.shared.resourcebundle.ConstantsResource"
+		field="i18n" />
+	
+	<ui:style>
+	</ui:style>
+	<g:FlowPanel>
+	
+		<g:FlowPanel ui:field="fieldtypeRow" addStyleNames="{res.css.ecFieldFilterItemRow}">
+			<g:Label ui:text="{i18n.fieldtype}" addStyleNames="{res.css.webuiProperty}"/>
+			<shr:CustomListBox ui:field="fieldtype" addStyleNames="{res.css.webuiListBox}"/>
+		</g:FlowPanel>
+		
+		<g:FlowPanel addStyleNames="{res.css.ecFieldFilterItemRow}" ui:field="fieldnameListRow">
+			<g:Label ui:text="{i18n.field}" ui:field="fieldnameLabel" addStyleNames="{res.css.webuiProperty}"/>
+			<shr:CustomListBox ui:field="fieldnameList" addStyleNames="{res.css.webuiListBox}"/>
+		</g:FlowPanel>
+		<g:FlowPanel addStyleNames="{res.css.ecFieldFilterItemRow}" ui:field="bankRow">
+			<g:Label ui:text="{i18n.bank}" ui:field="bankLabel" addStyleNames="{res.css.webuiProperty}"/>
+			<shr:CustomListBox ui:field="bank" addStyleNames="{res.css.webuiListBox}"/>
+		</g:FlowPanel>
+		<g:FlowPanel addStyleNames="{res.css.ecFieldFilterItemRow}" ui:field="oidRow">
+			<g:Label ui:text="{i18n.oid}" ui:field="oidLabel" addStyleNames="{res.css.webuiProperty}"/>
+			<shr:CustomSuggestBox ui:field="oid" addListBoxStyleNames="{res.css.webuiListBox}"/>
+		</g:FlowPanel>
+		<g:FlowPanel addStyleNames="{res.css.ecFieldFilterItemRow}" ui:field="lengthRow">
+			<g:Label ui:text="{i18n.length}"  ui:field="lengthLabel" addStyleNames="{res.css.webuiProperty}"/>
+			<g:TextBox ui:field="length" addStyleNames="{res.css.webuiTextBox}"/>
+		</g:FlowPanel>
+		<g:FlowPanel addStyleNames="{res.css.ecFieldFilterItemRow}" ui:field="offsetRow">
+			<g:Label ui:text="{i18n.offset}" ui:field="offsetLabel" addStyleNames="{res.css.webuiProperty}"/>
+			<g:TextBox ui:field="offset" addStyleNames="{res.css.webuiTextBox}"/>
+		</g:FlowPanel>
+
+		<g:FlowPanel addStyleNames="{res.css.ecFieldFilterItemRow}" ui:field="datatypeRow">
+			<g:Label ui:text="{i18n.dataType}" addStyleNames="{res.css.webuiProperty}"/>
+			<shr:CustomListBox ui:field="datatype" addStyleNames="{res.css.webuiListBox}"/>
+		</g:FlowPanel>
+		<g:FlowPanel addStyleNames="{res.css.ecFieldFilterItemRow}" ui:field="formatRow">
+			<g:Label ui:text="{i18n.format}" addStyleNames="{res.css.webuiProperty}"/>
+			<shr:CustomListBox ui:field="format" addStyleNames="{res.css.webuiListBox}"/>
+		</g:FlowPanel>
+					
+	</g:FlowPanel>
+</ui:UiBinder>

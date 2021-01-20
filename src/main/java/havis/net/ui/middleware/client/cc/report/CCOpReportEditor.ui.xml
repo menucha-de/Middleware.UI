@@ -1,0 +1,24 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:s="urn:import:havis.net.ui.middleware.client.shared"
+	>
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ResourceBundle" field="res" />
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ConstantsResource" field="i18n" />
+	
+	<ui:style>
+	</ui:style>
+	
+	<!-- overflow: hidden  get rid of scrollbars -->
+	
+	<g:FlowPanel ui:field="panel" addStyleNames="{res.css.left}">
+		<g:FlowPanel addStyleNames="{res.css.ccOpReportRow}">
+			<g:Label ui:text="{i18n.status}" addStyleNames="{res.css.webuiProperty}"/>
+			<g:TextBox ui:field="opStatus" addStyleNames="{res.css.webuiTextBox}" enabled="false"/>
+		</g:FlowPanel>
+		<g:FlowPanel addStyleNames="{res.css.ccOpReportRow}" ui:field="dataPanel">
+			<g:Label text="{i18n.data}" addStyleNames="{res.css.webuiProperty}" />
+			<s:AutoHeightTextArea ui:field="data" addStyleNames="{res.css.webuiTextArea}" enabled="false" />	
+		</g:FlowPanel>
+	</g:FlowPanel>
+</ui:UiBinder> 

@@ -1,0 +1,59 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:l="urn:import:havis.net.ui.middleware.client.shared.trigger"
+	xmlns:s="urn:import:havis.net.ui.shared.client.widgets"
+	xmlns:srp="urn:import:havis.net.ui.middleware.client.shared.report"
+	>
+	
+	<ui:with
+		type="havis.net.ui.middleware.client.shared.resourcebundle.ResourceBundle"
+		field="res" />
+	<ui:with
+		type="havis.net.ui.middleware.client.shared.resourcebundle.ConstantsResource"
+		field="i18n" />
+	
+	<ui:style>
+	</ui:style>
+	
+	<g:HTMLPanel>
+		<g:FlowPanel addStyleNames="{res.css.patternItemRow}">
+			<g:Label ui:text="{i18n.type}" addStyleNames="webui-Label {res.css.topFourLabels}" /> 
+			<s:CustomListBox ui:field="patternType" addStyleNames="{res.css.webuiListBox}"/>
+		</g:FlowPanel>
+		
+		<g:FlowPanel addStyleNames="{res.css.patternItemRow}">
+			<g:Label ui:text="{i18n.value}" ui:field="uintValueLabel" addStyleNames="webui-Label {res.css.bottomLabels}" />
+			<g:TextBox ui:field="valueBox" addStyleNames="{res.css.webuiTextBox}"/>
+		</g:FlowPanel>
+		
+		<g:FlowPanel addStyleNames="{res.css.patternItemRow}">
+			<g:Label ui:text="{i18n.scheme}" ui:field="schemeLabel" addStyleNames="webui-Label {res.css.topFourLabels}" />
+			<s:CustomListBox ui:field="schemeBox" addStyleNames="{res.css.webuiListBox}"/>
+			<g:TextBox ui:field="scheme" visible="false" />
+		</g:FlowPanel>		
+		<g:FlowPanel addStyleNames="{res.css.patternItemRow}">
+			<g:Label ui:text="{i18n.length}" ui:field="lengthLabel" addStyleNames="webui-Label {res.css.topFourLabels}" />
+			<s:CustomListBox ui:field="length" addStyleNames="{res.css.webuiListBox}"/>
+		</g:FlowPanel>
+		<g:FlowPanel addStyleNames="{res.css.patternItemRow}">
+			<g:Label ui:text="{i18n.filter}" ui:field="filterLabel" addStyleNames="webui-Label {res.css.topFourLabels}" />
+			<g:TextBox ui:field="filterBox" addStyleNames="{res.css.webuiTextBox}"/>
+		</g:FlowPanel>
+		
+		
+		<g:FlowPanel addStyleNames="{res.css.patternItemRow}">
+			<g:Label ui:text="{i18n.companyPrefix}" ui:field="component2Label" addStyleNames="webui-Label {res.css.bottomLabels}" />
+			<g:TextBox ui:field="component2Box" addStyleNames="{res.css.webuiTextBox}"/>
+		</g:FlowPanel>
+		<g:FlowPanel addStyleNames="{res.css.patternItemRow}">
+			<g:Label ui:text="{i18n.assetType}" ui:field="component3Label" addStyleNames="webui-Label {res.css.bottomLabels}" />
+			<g:TextBox ui:field="component3Box" addStyleNames="{res.css.webuiTextBox}"/>
+		</g:FlowPanel>
+		<g:FlowPanel addStyleNames="{res.css.patternItemRow}">
+			<g:Label ui:text="{i18n.serialNumber}" ui:field="component4Label" addStyleNames="webui-Label {res.css.bottomLabels}" />
+			<g:TextBox ui:field="component4Box" addStyleNames="{res.css.webuiTextBox}"/>
+		</g:FlowPanel>
+	</g:HTMLPanel>				
+	
+</ui:UiBinder>

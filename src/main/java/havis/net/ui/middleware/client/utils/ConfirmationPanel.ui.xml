@@ -1,0 +1,26 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ResourceBundle" field="res" />
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ConstantsResource" field="i18n" />
+	<ui:style>
+	.button {
+		width: 7em;
+	}
+	.buttons {
+		display: flex;
+		justify-content: space-between;
+	}
+	
+	</ui:style>
+	<g:HTMLPanel ui:field="panel">
+		<div class="{res.css.confText}">
+			<div class="{res.css.confirmIcon}"></div>
+			<g:Label ui:field="messageLabel" />
+		</div>
+		<div class="{style.buttons}">
+			<g:Button ui:field="okButton" stylePrimaryName="{res.css.webuiApplyButton} {style.button}" text="{i18n.okButtonLabel}" />
+			<g:Button ui:field="cancelButton" stylePrimaryName="{res.css.webuiCancelButton} {style.button}" text="{i18n.cancelButtonLabel}" />
+		</div>
+	</g:HTMLPanel>
+</ui:UiBinder> 

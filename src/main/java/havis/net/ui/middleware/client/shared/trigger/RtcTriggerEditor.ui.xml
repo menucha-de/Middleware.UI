@@ -1,0 +1,32 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:h="urn:import:havis.net.ui.middleware.client.shared"
+	xmlns:l="urn:import:havis.net.ui.middleware.client.shared.trigger">
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ResourceBundle" field="res" />
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ConstantsResource" field="i18n" />
+	<ui:style>
+	</ui:style>
+	<g:FlowPanel>
+		<g:FlowPanel addStyleNames="{res.css.specTriggerRow}">
+			<g:Label ui:text="{i18n.period}" addStyleNames="{res.css.webuiProperty}"/>
+			<g:LongBox ui:field="periodHours" addStyleNames="{res.css.webuiTextBox}" title="{i18n.hours}"/>
+			<g:Label ui:text=":"/>
+			<g:LongBox ui:field="periodMinutes" addStyleNames="{res.css.webuiTextBox}" title="{i18n.minutes}"/>
+			<g:Label ui:text=":"/>
+			<g:LongBox ui:field="periodSeconds" addStyleNames="{res.css.webuiTextBox}" title="{i18n.seconds}"/>
+			<g:Label ui:text=":"/>
+			<g:LongBox ui:field="periodMilliseconds" addStyleNames="{res.css.webuiTextBox}" title="{i18n.milliseconds}"/>
+		</g:FlowPanel>
+		<g:FlowPanel addStyleNames="{res.css.specTriggerRow}">
+			<g:Label ui:text="{i18n.offset}" addStyleNames="{res.css.webuiProperty}"/>
+			<g:LongBox ui:field="offsetHours" addStyleNames="{res.css.webuiTextBox}" title="{i18n.hours}"/>
+			<g:Label ui:text=":"/>
+			<g:LongBox ui:field="offsetMinutes" addStyleNames="{res.css.webuiTextBox}" title="{i18n.minutes}"/>
+			<g:Label ui:text=":"/>
+			<g:LongBox ui:field="offsetSeconds" addStyleNames="{res.css.webuiTextBox}" title="{i18n.seconds}"/>
+			<g:Label ui:text=":"/>
+			<g:LongBox ui:field="offsetMilliseconds" addStyleNames="{res.css.webuiTextBox}" title="{i18n.milliseconds}"/>
+		</g:FlowPanel>
+	</g:FlowPanel>
+</ui:UiBinder> 

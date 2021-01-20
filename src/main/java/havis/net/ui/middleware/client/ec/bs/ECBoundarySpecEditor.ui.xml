@@ -1,0 +1,37 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:h="urn:import:havis.net.ui.middleware.client.shared" 
+	xmlns:s="urn:import:havis.net.ui.shared.client"
+	xmlns:t="urn:import:havis.net.ui.middleware.client.shared.trigger"
+	>
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ResourceBundle" field="res" />
+	<ui:with type="havis.net.ui.shared.resourcebundle.ResourceBundle" field="sharedRes" />
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ConstantsResource" field="i18n" />
+	
+	<ui:style>
+	</ui:style>
+	<g:FlowPanel>
+
+		<g:FlowPanel addStyleNames="{res.css.boundarySpecRow}">
+			<g:Label text="{i18n.repeatPeriod}" addStyleNames="{res.css.webuiProperty}"/>
+			<h:ECTimeEditor ui:field="repeatPeriod" addStyleNames="{res.css.webuiTextBox}" />
+		</g:FlowPanel>
+		<g:FlowPanel addStyleNames="{res.css.boundarySpecRow}">
+			<g:Label text="{i18n.duration}" addStyleNames="{res.css.webuiProperty}"/>
+			<h:ECTimeEditor ui:field="duration" addStyleNames="{res.css.webuiTextBox}" />
+		</g:FlowPanel>
+		<g:FlowPanel addStyleNames="{res.css.boundarySpecRow}">
+			<g:Label text="{i18n.stableSet}" addStyleNames="{res.css.webuiProperty}"/>
+			<h:ECTimeEditor ui:field="stableSetInterval" addStyleNames="{res.css.webuiTextBox}" />
+		</g:FlowPanel>
+		<g:FlowPanel addStyleNames="{res.css.boundarySpecRow} {res.css.switcher}">
+			<g:Label text="{i18n.whenDataAvailable}" addStyleNames="{res.css.webuiProperty}"/>
+			<g:ToggleButton ui:field="whenDataAvailable" styleName="webui-Switcher"/>
+		</g:FlowPanel>
+		<s:ConfigurationSections ui:field="boundarySpecConfigSections" addStyleNames="{sharedRes.css.editorSections}">
+			<t:TriggerListWidget ui:field="boundaryStartTriggerList"/>
+			<t:TriggerListWidget ui:field="boundaryStopTriggerList"/>
+		</s:ConfigurationSections>
+	</g:FlowPanel>
+</ui:UiBinder> 

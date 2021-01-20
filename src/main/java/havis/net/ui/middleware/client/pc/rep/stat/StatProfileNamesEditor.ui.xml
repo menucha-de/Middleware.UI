@@ -1,0 +1,34 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+	<ui:with
+		type="havis.net.ui.middleware.client.shared.resourcebundle.ResourceBundle"
+		field="res" />
+	<ui:with
+		type="havis.net.ui.middleware.client.shared.resourcebundle.ConstantsResource"
+		field="i18n" />
+	<ui:style>
+	</ui:style>
+	
+	<g:FlowPanel>
+		<g:HTMLPanel ui:field="mainPanel">
+			<div class="{res.css.specItemOutputRow}">
+				<g:Label text="{i18n.eventTimestamps}" styleName="webui-Label {res.css.statisticsLabel}" />
+				<g:ToggleButton ui:field="eventTimestamps" styleName="webui-Switcher {res.css.toggleDistance}" />
+			</div>
+			<div class="{res.css.specItemOutputRow}">
+				<g:Label text="{i18n.eventCount}" styleName="webui-Label {res.css.statisticsLabel}"/>
+				<g:ToggleButton ui:field="eventCount" styleName="webui-Switcher {res.css.toggleDistance}" />
+			</div>
+			<div class="{res.css.specItemOutputRow}">
+				<g:Label text="{i18n.readers}" styleName="webui-Label {res.css.statisticsLabel}"/>
+				<g:ToggleButton ui:field="readerNames" styleName="webui-Switcher {res.css.toggleDistance}" />
+			</div>
+			<div class="{res.css.specItemOutputRow}">
+				<g:Label text="{i18n.sightingSignals}" styleName="webui-Label {res.css.statisticsLabel}"/>
+				<g:ToggleButton ui:field="readerSightingSignals" styleName="webui-Switcher" />
+			</div>	
+		</g:HTMLPanel>
+	</g:FlowPanel>
+</ui:UiBinder> 

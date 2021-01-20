@@ -1,0 +1,12 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:st="urn:import:havis.net.ui.shared.client.table"
+	>
+	<ui:style>
+		
+	</ui:style>
+	<g:HTMLPanel>
+		<st:CustomTable ui:field="table" />
+	</g:HTMLPanel>
+</ui:UiBinder> 

@@ -1,0 +1,21 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:us="urn:import:havis.net.ui.shared.client"
+	xmlns:ou="urn:import:havis.net.ui.middleware.client.ec.rep.output"
+	xmlns:lst="urn:import:havis.net.ui.middleware.client.shared.report.list"
+	>
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ConstantsResource" field="i18n" />
+	<ui:with type="havis.net.ui.shared.resourcebundle.ResourceBundle" field="sharedRes" />
+	
+	<ui:style>
+	</ui:style>
+		
+	<g:HTMLPanel>
+		<us:ConfigurationSections ui:field="reportConfigSections" addStyleNames="{sharedRes.css.editorSections}">
+			<ou:OutputIncludeEditor ui:field="configSecOutputInclude" />
+			<lst:SingleColumnListWidget ui:field="configSecOutputFields" />
+			<ou:OutputStatisticsEditor ui:field="configSecOutputStatistics" />
+		</us:ConfigurationSections>
+	</g:HTMLPanel>
+</ui:UiBinder> 

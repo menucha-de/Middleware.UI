@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="havis.net.ui.middleware" default="publish" xmlns:ivy="antlib:org.apache.ivy.ant">
+
+	<property file="${basedir}/build.properties" />
+	<property name="basename" value="${ant.project.name}" />
+	<property name="build.dir" location="${basedir}/target" />
+	<property name="build.dir.classes" location="${build.dir}/www/WEB-INF/classes" />
+	<property name="doc.dir" location="${build.dir}/doc" />
+	<property name="lib.dir" location="${basedir}/lib" />
+	<property name="resources.dir" location="${basedir}/src/main/resources" />
+	<property name="src.dir" location="${basedir}/src/main/java" />
+
+	<property file="${resources.dir}/MANIFEST.MF" prefix="manifest" />
+	<property file="${resources.dir}/build.properties" />
+
+	<property name="target.dir" location="${build.dir}/www" />
+	<property name="gwt.modules" value="havis.net.ui.middleware.Middleware" />
+
+	<property name="javac.version" value="8" />
+
+	<path id="build.classpath">
+		<fileset dir="${lib.dir}" />
+	</path>
+
+	<!-- Checks if the build properties are set prints an error message otherwise -->
+	<target name="check.build.properties">
+		<condition property="ivy.resolver" else="local">
+			<isset property="ivy.resolver" />
+		</condition>
+		<fail message="Missing property 'api.url'. Does 'build.properties' file exists?" unless="api.url" />
+		<fail message="Missing property 'ivy.url'. Does 'build.properties' file exists?" unless="ivy.url" />
+	</target>
+
+	<target name="clean-cache" description="Cleans the ivy cache">
+		<ivy:cleancache />
+	</target>
+
+	<target name="clean" description="Cleans the project">
+		<delete dir="${build.dir}" />
+		<delete dir="${lib.dir}" />
+	</target>
+
+	<target name="clean-all" depends="clean, clean-cache" description="Cleans the project and ivy cache" />
+
+	<target name="retrieve" depends="check.build.properties">
+		<ivy:retrieve log="quiet" />
+	</target>
+
+	<target name="retrieve-runtime">
+		<ivy:retrieve pattern="${build.dir}/www/WEB-INF/lib/[artifact].[ext]" conf="runtime" />
+	</target>
+
+	<!-- Compiles the java source files -->
+	<target name="compile" depends="retrieve">
+		<mkdir dir="${build.dir.classes}" />
+		<javac srcdir="${src.dir}" destdir="${build.dir.classes}" release="${javac.version}" debug="${javac.debug}" includeantruntime="false">
+			<classpath>
+				<!-- build libraries -->
+				<path refid="build.classpath" />
+			</classpath>
+		</javac>
+	</target>
+
+	<!-- Checks if the java source files of the existing WAR are up to date Parameter: "target.file" -->
+	<target name="check.compile-gwt">
+		<uptodate property="uptodate.compile-gwt" targetfile="${build.dir.zip}/${basename}.jar">
+			<srcfiles dir="${src.dir}" />
+		</uptodate>
+	</target>
+
+	<!-- Compiles the GWT modules to javascript Parameter: "target.dir", "target.file" -->
+	<target name="compile-gwt" depends="retrieve, compile, check.compile-gwt" unless="uptodate.compile-gwt">
+		<mkdir dir="${target.dir}" />
+		<!-- create javascript for client with GWT -->
+		<java failonerror="true" fork="true" classname="com.google.gwt.dev.Compiler">
+			<classpath>
+				<!-- own GWT source files -->
+				<pathelement location="${src.dir}" />
+				<!-- external GWT source files -->
+				<pathelement location="${build.dir}/src/main/java" />
+				<!-- external GWT XML files -->
+				<pathelement location="${resources.dir}/classpath" />
+				<!-- build libraries -->
+				<pathelement location="${build.dir.classes}" />
+				<path refid="build.classpath" />
+			</classpath>
+			<jvmarg value="-Xmx512M" />
+			<arg value="-strict" />
+			<arg value="-war" />
+			<arg value="${target.dir}" />
+			<arg line="${gwt.modules}" />
+		</java>
+	</target>
+
+	<target name="www" depends="compile-gwt, retrieve-runtime">
+		<copy todir="${target.dir}">
+			<fileset dir="${resources.dir}/www" />
+		</copy>
+	</target>
+
+	<!-- Packages the classes into a JAR file -->
+	<target name="jar" depends="compile" description="Creates the JAR">
+		<!-- create JAR -->
+		<jar jarfile="${build.dir}/${basename}.jar" basedir="${build.dir.classes}" manifest="${resources.dir}/MANIFEST.MF" />
+	</target>
+
+	<target name="jar-src" depends="compile" description="Creates the sources JAR">
+		<!-- create sources JAR -->
+		<jar jarfile="${build.dir}/${basename}-sources.jar" basedir="${src.dir}" />
+	</target>
+
+	<target name="jar-doc" description="Creates the javadoc JAR">
+		<!-- create javadoc JAR -->
+		<javadoc destdir="${doc.dir}" author="true" version="true" use="true" windowtitle="${javadoc.windowtitle}" doctitle="${javadoc.doctitle}" bottom="${javadoc.buttom}">
+			<packageset dir="${src.dir}" defaultexcludes="yes" />
+			<classpath refid="build.classpath" />
+			<group title="Packages" packages="${basename}.*" />
+			<link offline="true" href="http://docs.oracle.com/javase/7/docs/api/" packagelistURL="${api.url}/javase/7/" />
+			<link offline="true" href="http://www.gwtproject.org/javadoc/latest/" packagelistURL="${api.url}/gwt/" />
+		</javadoc>
+		<jar jarfile="${build.dir}/${basename}-javadoc.jar" basedir="${doc.dir}" />
+	</target>
+
+	<target name="publish" depends="jar, jar-src, jar-doc">
+		<!-- publish JARs -->
+		<ivy:resolve file="${resources.dir}/ivy.xml" />
+
+		<ivy:publish resolver="${ivy.resolver}" pubrevision="${manifest.Bundle-Version}" status="integration" overwrite="true">
+			<artifacts pattern="${build.dir}/[artifact].[ext]" />
+		</ivy:publish>
+	</target>
+
+</project>

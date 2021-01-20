@@ -1,0 +1,24 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:l="urn:import:havis.net.ui.middleware.client.shared.trigger"
+	xmlns:s="urn:import:havis.net.ui.shared.client.widgets">
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ResourceBundle" field="res" />
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ConstantsResource" field="i18n" />
+	
+	<ui:style>
+	</ui:style>
+	<g:FlowPanel>
+		<g:FlowPanel addStyleNames="{res.css.specTriggerRow}">
+			<g:Label ui:text="{i18n.scheme}" addStyleNames="{res.css.webuiProperty}" />
+			<s:CustomListBox ui:field="scheme" addStyleNames="{res.css.webuiListBox}"/>
+		</g:FlowPanel>
+		<g:FlowPanel addStyleNames="{res.css.specTriggerRow}">
+			<g:Label ui:text="{i18n.type}" addStyleNames="{res.css.webuiProperty}"/>
+			<s:CustomListBox ui:field="type" addStyleNames="{res.css.webuiListBox}"/>
+		</g:FlowPanel>
+		<l:HttpTriggerEditor ui:field="httpTriggerEditor"/>
+		<l:PortTriggerEditor ui:field="portTriggerEditor"/>	
+		<l:RtcTriggerEditor ui:field="rtcTriggerEditor"/>		
+	</g:FlowPanel>
+</ui:UiBinder> 

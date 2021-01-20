@@ -1,0 +1,16 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:ps="urn:import:havis.net.ui.middleware.client.shared.powerscale">
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ResourceBundle" field="res" />
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ConstantsResource" field="i18n" />
+	<ui:style>
+	</ui:style>
+	<g:FlowPanel>
+		<g:FlowPanel addStyleNames="{res.css.sectionRow}">
+			<g:Label ui:text="{i18n.timeout}" />
+			<g:TextBox ui:field="timeout" addStyleNames="{res.css.webuiTextBox}" />
+			<ps:PowerScaleWidget ui:field="timeoutScale" autoRepeat="true"/>
+		</g:FlowPanel>
+	</g:FlowPanel>
+</ui:UiBinder>

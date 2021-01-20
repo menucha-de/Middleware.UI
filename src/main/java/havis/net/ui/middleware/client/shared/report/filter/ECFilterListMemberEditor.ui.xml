@@ -1,0 +1,31 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:fld="urn:import:havis.net.ui.middleware.client.shared.report.filter.field"
+	xmlns:us="urn:import:havis.net.ui.shared.client"
+	xmlns:srl="urn:import:havis.net.ui.middleware.client.shared.report.list" >
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ResourceBundle" field="res" />
+	<ui:with type="havis.net.ui.shared.resourcebundle.ResourceBundle" field="sharedRes" />
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ConstantsResource" field="i18n" />	
+	<ui:style>
+	</ui:style>
+	
+	<g:HTMLPanel>
+			
+		<g:FlowPanel addStyleNames="{res.css.ecFieldFilterItemRow}">
+			<g:Label text="{i18n.include}" addStyleNames="webui-Label {res.css.marginToggleLabel} {res.css.webuiProperty}"/>
+			<g:ToggleButton ui:field="toggleInclude" styleName="webui-Switcher" />
+		</g:FlowPanel>
+		
+		<g:FlowPanel addStyleNames="{res.css.ecFieldFilterItemRow}">
+			<g:Label text="{i18n.exclude}" addStyleNames="webui-Label {res.css.marginToggleLabel} {res.css.webuiProperty}"/>
+			<g:ToggleButton ui:field="toggleExclude" styleName="webui-Switcher" />
+		</g:FlowPanel>
+		
+		<us:ConfigurationSections ui:field="filterConfigSections" addStyleNames="{sharedRes.css.editorSections}">
+			<fld:ECFieldSpecSectionEditor ui:field="filterListMemberFieldEditor" />
+			<srl:SingleColumnListWidget ui:field="patternListEditor" />
+		</us:ConfigurationSections>
+		
+	</g:HTMLPanel>	
+</ui:UiBinder> 

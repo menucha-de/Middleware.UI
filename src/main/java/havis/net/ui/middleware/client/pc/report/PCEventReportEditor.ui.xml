@@ -1,0 +1,24 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:s="urn:import:havis.net.ui.shared.client"
+	xmlns:t="urn:import:havis.net.ui.shared.client.table">
+	<ui:with type="havis.net.ui.middleware.client.shared.resourcebundle.ResourceBundle" field="res" />
+	<ui:with type="havis.net.ui.shared.resourcebundle.ResourceBundle" field="sharedRes" />
+	
+	<ui:style>
+	.margin{
+			margin-left:0.4em !important;
+		}
+		.sightings{
+			font-weight:bold;
+			padding-top:0.5em;
+		}
+	</ui:style>
+	<g:FlowPanel addStyleNames="{style.margin}">
+		<s:ConfigurationSections ui:field="opReports" addStyleNames="{sharedRes.css.editorSections}"/>
+		<t:CustomTable ui:field="values" visible="false"/>
+		<g:Label text="Sightings" ui:field="sightingsLabel" addStyleNames="{style.sightings}" visible="false"/>
+		<t:CustomTable ui:field="sightings" visible="false"/>
+	</g:FlowPanel>
+</ui:UiBinder> 
