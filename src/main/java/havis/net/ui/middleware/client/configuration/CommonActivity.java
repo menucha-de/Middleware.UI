@@ -168,8 +168,8 @@ public class CommonActivity extends BaseActivity implements CommonView.Presenter
 		});
 		view.setDocumentation(
 				com.google.gwt.core.client.GWT.getHostPageBaseURL() + "rest/ale/doc/ALE_Vendor_Specification.pdf");
-		view.setAuthor("HARTING IT Software Development GmbH & Co. KG");
-		view.setHomepage("http://www.harting-rfid.com");
+		view.setAuthor("Menucha Team");
+		view.setHomepage("http://menucha.de");
 	}
 
 	@Override
